@@ -1,0 +1,1 @@
+drop function add_player_contract();

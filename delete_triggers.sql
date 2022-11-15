@@ -1,0 +1,1 @@
+drop trigger if exists new_player_contract on player_contracts;

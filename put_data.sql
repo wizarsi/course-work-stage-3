@@ -33,11 +33,6 @@ values ('RUB', 'EUR', 2.61);
 insert into coasts (currency_recipient, currency_sender, exchange_rate)
 values ('RUB', 'GBP', 72.14);
 
-insert into player_contracts (coast_id, start_date, end_date, salary, compensation_value)
-values (1, '2001-09-28', '2003-09-28', 100, 10000);
-insert into player_contracts (coast_id, start_date, end_date, salary, compensation_value)
-values (2, '2001-05-28', '2003-05-28', 1000, 100000);
-
 insert into football_clubs
     (name, players_count, trophies_count, budget, rating, sport_director)
 values ('Manchester United', 30, 10, 20000000, 40, 1);
@@ -48,12 +43,20 @@ insert into football_clubs
     (name, players_count, trophies_count, budget, rating, sport_director)
 values ('Zenit', 28, 15, 15000000, 20, 3);
 
-insert into players (name, surname, age, position, statistic, contract, rating, football_club)
-values ('Cristiano', 'Ronaldo', 38, 'Atacker', 1, 1, 90, 1);
-insert into players (name, surname, age, position, statistic, contract, rating, football_club)
-values ('Erling', 'Haaland', 23, 'Atacker', 2, 2, 98, 2);
-insert into players (name, surname, age, position, statistic, contract, rating, football_club)
-values ('Kai', 'Hawertz', 25, 'Atacker', 2, 2, 95, 3);
+insert into players (name, surname, age, position, statistic, rating, football_club)
+values ('Cristiano', 'Ronaldo', 38, 'Atacker', 1, 90, 1);
+insert into players (name, surname, age, position, statistic, rating, football_club)
+values ('Erling', 'Haaland', 23, 'Atacker', 2, 98, 2);
+insert into players (name, surname, age, position, statistic, rating, football_club)
+values ('Kai', 'Hawertz', 25, 'Atacker', 2, 95, 3);
+
+insert into player_contracts (coast_id, start_date, end_date, salary, compensation_value, player_id)
+values (1, '2020-09-28', '2023-09-28', 100, 10000, 1);
+insert into player_contracts (coast_id, start_date, end_date, salary, compensation_value, player_id)
+values (2, '2018-05-28', '2022-05-28', 1000, 100000, 2);
+insert into player_contracts (coast_id, start_date, end_date, salary, compensation_value, player_id)
+values (2, '2018-05-28', '2023-05-28', 1000, 100000, 3);
+
 
 insert into players_club(player_id, club_id)
 values (1, 1);

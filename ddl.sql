@@ -24,7 +24,7 @@ CREATE TABLE "football_clubs"
     "trophies_count" int                 not null,
     "budget"         int                 not null,
     "rating"         int                 not null,
-    "sport_director" int not null
+    "sport_director" int                 not null
 );
 
 
@@ -36,7 +36,7 @@ CREATE TABLE "players"
     "age"           int          not null,
     "position"      varchar(100) not null,
     "statistic"     int          not null,
-    "contract"      int          not null,
+    "contract"      int,
     "rating"        int          not null,
     "football_club" int
 );
@@ -93,7 +93,8 @@ CREATE TABLE "player_contracts"
     "start_date"         date not null,
     "end_date"           date not null,
     "salary"             int  not null,
-    "compensation_value" int  not null
+    "compensation_value" int  not null,
+    "player_id"          int  not null
 );
 
 CREATE TABLE "transfer_request"
@@ -108,11 +109,11 @@ CREATE TABLE "transfer_request"
 
 CREATE TABLE "exchange_request"
 (
-    "id"                serial PRIMARY KEY,
-    "player_id"         int                not null,
-    "club_from"         int                not null,
-    "player_get"        int                not null,
-    "club_to"           int                not null
+    "id"         serial PRIMARY KEY,
+    "player_id"  int not null,
+    "club_from"  int not null,
+    "player_get" int not null,
+    "club_to"    int not null
 );
 
 CREATE TABLE "club_league"
@@ -184,3 +185,6 @@ ALTER TABLE "club_league"
 
 ALTER TABLE "club_league"
     ADD FOREIGN KEY ("league_id") REFERENCES "football_leagues" ("id");
+
+ALTER TABLE "player_contracts"
+    ADD FOREIGN KEY ("player_id") REFERENCES "players" ("id");
