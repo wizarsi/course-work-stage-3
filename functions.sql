@@ -20,9 +20,18 @@ begin
     end if;
     return (select sum(player_contracts.salary) from players
                  join player_contracts on players.contract = player_contracts.id
-                 where players.football_club = club_id);
+                 where players.football_club = club_id) * 12;
 end
 $$ language plpgsql;
 
 select budget_for_salaries(1);
 select budget_for_salaries(3);
+
+
+create or replace function add_club_to_sport_director() returns trigger as
+$$
+begin
+    update sport_directors set football_club = new.id where id = new.sport_director;
+    return new;
+end
+$$ language plpgsql;
