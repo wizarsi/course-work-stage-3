@@ -35,3 +35,11 @@ begin
     return new;
 end
 $$ language plpgsql;
+
+create or replace function add_coach_to_football_club() returns trigger as
+$$
+begin
+    update football_clubs set coach = new.id where id = new.football_club;
+    return new;
+end
+$$ language plpgsql;
