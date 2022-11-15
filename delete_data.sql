@@ -1,0 +1,13 @@
+truncate table club_league restart identity;
+truncate table coaches restart identity cascade;
+truncate table coasts restart identity cascade;
+truncate table exchange_request restart identity cascade;
+truncate table football_clubs restart identity cascade;
+truncate table football_leagues restart identity cascade;
+truncate table player_contracts restart identity cascade;
+truncate table player_statistics restart identity cascade;
+truncate table players restart identity cascade;
+truncate table players_club restart identity cascade;
+truncate table sport_directors restart identity cascade;
+truncate table transfer_request restart identity cascade;
+truncate table coach_statistics restart identity cascade;

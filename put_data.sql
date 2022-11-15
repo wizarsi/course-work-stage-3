@@ -35,13 +35,13 @@ values (2500000, 2, '2001-05-28', '2003-05-28', 1000, 100000);
 
 insert into football_clubs
     (name, players_count, trophies_count, budget, rating)
-values ('Manchester United', 30, 10, 20000000000, 40);
+values ('Manchester United', 30, 10, 20000000, 40);
 insert into football_clubs
     (name, players_count, trophies_count, budget, rating)
-values ('Real Madrid', 35, 18, 15000000000, 50);
+values ('Real Madrid', 35, 18, 150000000, 50);
 insert into football_clubs
     (name, players_count, trophies_count, budget, rating)
-values ('Zenit', 28, 15, 1500000000, 20);
+values ('Zenit', 28, 15, 15000000, 20);
 
 insert into players (name, surname, age, position, statistic, contract, rating, football_club)
 values ('Cristiano', 'Ronaldo', 38, 'Atacker', 1, 1, 90, 1);
