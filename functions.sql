@@ -43,3 +43,34 @@ begin
     return new;
 end
 $$ language plpgsql;
+
+create or replace function add_rating_to_coach() returns trigger as
+$$
+declare
+    rat double precision := 0;
+begin
+    rat = (select won_mathes from coach_statistics where id = new.statistic)::numeric /
+          (select count_matches from coach_statistics where id = new.statistic) * 50 +
+          (select count_trophies from coach_statistics where id = new.statistic)::numeric / 20 * 50;
+    update coaches set rating = floor(rat)::int where id = new.id;
+    return new;
+end
+$$ language plpgsql;
+
+create or replace function add_rating_to_player() returns trigger as
+$$
+declare
+    rat double precision := 0;
+begin
+    rat = (select won_mathes from player_statistics where id = new.statistic)::numeric /
+          (select count_matches from player_statistics where id = new.statistic) * 40 +
+          (select count_trophies from player_statistics where id = new.statistic)::numeric / 20 * 20 +
+          ((select count_assists from player_statistics where id = new.statistic) +
+          (select count_goals from player_statistics where id = new.statistic))::numeric / 100 * 30 -
+          (select red_cards from player_statistics where id = new.statistic)::numeric / 15 * 10;
+    update players set rating = floor(rat)::int where id = new.id;
+    return new;
+end
+$$ language plpgsql;
+
+
