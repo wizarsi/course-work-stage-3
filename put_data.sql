@@ -28,10 +28,10 @@ values (100, 230, 2, 25, 67, 1);
 insert into player_statistics (won_mathes, count_matches, count_trophies, count_assists, count_goals, red_cards)
 values (167, 250, 1, 23, 40, 6);
 
-insert into coasts (currency_recipient, currency_sender, exchange_rate)
-values ('RUB', 'EUR', 2.61);
-insert into coasts (currency_recipient, currency_sender, exchange_rate)
-values ('RUB', 'GBP', 72.14);
+insert into coasts (currency_recipient, currency_sender, exchange_rate_recipient_to_sender)
+values ('EUR', 'RUB', 63.52);
+insert into coasts (currency_recipient, currency_sender, exchange_rate_recipient_to_sender)
+values ('GBP', 'RUB', 72.14);
 
 insert into football_clubs
     (name, players_count, trophies_count, budget, rating, sport_director)
@@ -72,8 +72,8 @@ values ('Petya', 'Vasyin', 45, 2, 40, 2);
 insert into coaches(name, surname, age, football_club, rating, statistic)
 values ('Josef', 'Ket', 50, 3, 67, 3);
 
-insert into transfer_request(value, coast_id, club_from, club_to, player_id)
-values (120000, 1, 3, 2, 3);
+insert into transfer_request(coast_id, club_from, club_to, player_id)
+values (2, 3, 2, 3);
 
 insert into exchange_request(player_id, club_from, player_get, club_to)
 values (2, 2, 1, 1);

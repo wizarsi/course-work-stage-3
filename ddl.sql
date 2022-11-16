@@ -83,7 +83,7 @@ CREATE TABLE "coasts"
     "id"                 serial PRIMARY KEY,
     "currency_recipient" varchar(100) not null,
     "currency_sender"    varchar(100) not null,
-    "exchange_rate"      decimal      not null
+    "exchange_rate_recipient_to_sender"      decimal      not null
 );
 
 CREATE TABLE "player_contracts"
@@ -100,7 +100,6 @@ CREATE TABLE "player_contracts"
 CREATE TABLE "transfer_request"
 (
     "id"        serial PRIMARY KEY,
-    "value"     int not null,
     "coast_id"  int not null,
     "club_from" int not null,
     "club_to"   int not null,
@@ -112,8 +111,10 @@ CREATE TABLE "exchange_request"
     "id"         serial PRIMARY KEY,
     "player_id"  int not null,
     "club_from"  int not null,
+    "value"      int default 0,
     "player_get" int not null,
-    "club_to"    int not null
+    "club_to"    int not null,
+    "value_get"  int default 0
 );
 
 CREATE TABLE "club_league"
